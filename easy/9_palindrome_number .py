@@ -18,21 +18,29 @@ Example 3:
     Input: x = 10
     Output: false
     Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
-    
 
 '''
-
 class Solution:
     def isPalindrome(self, x: int) -> bool:
-        num: int = 121
-        reverse: int = 121
-
-        bin_num = bin(num)
-        print()    
-
+        # int not iterable object
+        
+        is_minus = (x < 0)
+        if is_minus: 
+            return False    
+        
+        num, tmp_x = 0, x
+        while tmp_x != 0:
+            y = tmp_x % 10 
+            num = (num * 10) + y
+            tmp_x = tmp_x // 10
+            
+        return (num == x)
+        
 if __name__ == '__main__':
-    s = Solution()
-    # return s.isPalindrome()
+        """_summary_
+        """    
+        s = Solution()
+        result = s.isPalindrome(121)
 
 
 
