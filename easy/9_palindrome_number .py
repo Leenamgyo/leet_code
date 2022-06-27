@@ -21,6 +21,34 @@ Example 3:
 
 '''
 class Solution:
+    # isPalindrome_Solution_1, isPalindrome_Solution_2 is best faster in leetCode 
+    # Solution 1: 89.20% faster
+    def isPalindrome_Solution_1(self, x: int) -> bool:
+        if x<0: 
+            return False
+
+        inputNum = x
+        newNum = 0
+        while x>0:
+            newNum = newNum * 10 + x%10
+            x = x//10
+        return newNum == inputNum
+    
+    
+    # Solution 2: 99.14% faster.
+    def isPalindrome_Solution_2(self, x: int) -> bool:
+        if x < 0 or (x > 0 and x%10 == 0):   # if x is negative, return False. if x is positive and last digit is 0, that also cannot form a palindrome, return False.
+	        return False
+        
+        result = 0
+        while x > result:
+            result = result * 10 + x % 10
+            x = x // 10
+            
+        return True if (x == result or x == result // 10) else False
+    
+    
+    # made by me 
     def isPalindrome(self, x: int) -> bool:
         # int not iterable object
         
@@ -30,11 +58,12 @@ class Solution:
         
         num, tmp_x = 0, x
         while tmp_x != 0:
-            y = tmp_x % 10 
-            num = (num * 10) + y
+            num = (num * 10) + tmp_x % 10 
             tmp_x = tmp_x // 10
             
         return (num == x)
+    
+    
         
 if __name__ == '__main__':
         """_summary_
