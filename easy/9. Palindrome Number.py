@@ -37,9 +37,11 @@ class Solution:
     
     # Solution 2: 99.14% faster.
     def isPalindrome_Solution_2(self, x: int) -> bool:
-        if x < 0 or (x > 0 and x%10 == 0):   # if x is negative, return False. if x is positive and last digit is 0, that also cannot form a palindrome, return False.
-	        return False
         
+        
+        if x < 0 or (x > 0 and x%10 == 0):   # if x is negative, return False. if x is positive and last digit is 0, that also cannot form a palindrome, return False.
+            return False
+     
         result = 0
         while x > result:
             result = result * 10 + x % 10
@@ -66,10 +68,8 @@ class Solution:
     
         
 if __name__ == '__main__':
-        """_summary_
-        """    
-        s = Solution()
-        result = s.isPalindrome(121)
+    s = Solution()
+    result = s.isPalindrome(121)
 
 
 
